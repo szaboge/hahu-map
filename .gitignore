@@ -97,6 +97,7 @@ typings/
 .idea/**/dictionaries
 .idea/**/shelf
 
+api/dist/
 .idea/
 
 # Generated files
