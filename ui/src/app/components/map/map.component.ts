@@ -31,7 +31,8 @@ export class MapComponent implements OnInit {
   }
 
   addMarker(location: Location) {
-    L.marker([location.lat, location.lng]).addTo(this.map);
+    let marker = L.marker([location.lat, location.lng]).addTo(this.map);
+    marker.bindPopup("<b>Hello world!</b><br>I am a popup.");
   }
 
 }
