@@ -18,13 +18,7 @@ export class PageService {
     }
 
     async processHtml(html: string) {
-        let page;
-        try {
-            page = this.cheerioService.parse(html);
-        } catch (e) {
-            throw new BadRequestException();
-        }
-
+        let page = this.cheerioService.parse(html);
         return this.carService.processCars(page);
     }
     getLastPage(page) {

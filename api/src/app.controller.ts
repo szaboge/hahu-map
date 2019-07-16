@@ -1,19 +1,16 @@
-import {BadRequestException, Controller, Get, Param, Post, Query, Req} from '@nestjs/common';
-import {AppService} from './app.service';
+import {Controller, Get, Post, Query, Req} from '@nestjs/common';
 import {PageService} from "./services/page.service";
 import * as rawbody from 'raw-body';
 
 @Controller()
 export class AppController {
 
-    constructor(private readonly appService: AppService,
-                private pageService: PageService) {
+    constructor(private pageService: PageService) {
     }
 
     @Get('locations/saved')
     async getLocations(@Query('url') param) {
         if (param) return await this.pageService.processUrl(param);
-        else throw new BadRequestException();
     }
 
     @Post('locations/favorite')
