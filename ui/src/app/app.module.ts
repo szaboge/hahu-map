@@ -7,6 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MapComponent } from './components/map/map.component';
+import {HttpClientModule} from "@angular/common/http";
+import {PageService} from "./services/page.service";
 
 @NgModule({
   declarations: [
@@ -18,9 +20,10 @@ import { MapComponent } from './components/map/map.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
+    HttpClientModule,
     MatToolbarModule
   ],
-  providers: [],
+  providers: [PageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
