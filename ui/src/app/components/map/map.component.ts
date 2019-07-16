@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MapService } from '../../services/map.service';
-import { Location } from '../../../../../interfaces/location.interface';
+import { Location } from '../../interfaces/location.interface';
 
 declare let L;
 

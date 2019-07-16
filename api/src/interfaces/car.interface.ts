@@ -1,4 +1,4 @@
-import { Location } from '../../../interfaces/location.interface';
+import { Location } from './location.interface';
 
 export interface Car {
     title: string;
