@@ -1,6 +1,6 @@
 import {HttpService, Injectable} from '@nestjs/common';
 import {Car} from "../interfaces/car.interface";
-import {Location} from "../interfaces/location.interface";
+import { Location } from '../../../interfaces/location.interface';
 
 @Injectable()
 export class CarService {

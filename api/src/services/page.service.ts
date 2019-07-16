@@ -1,4 +1,4 @@
-import {BadRequestException, HttpService, Injectable} from '@nestjs/common';
+import {HttpService, Injectable} from '@nestjs/common';
 import {CheerioService} from "./cheerio.service";
 import {CarService} from "./car.service";
 import {Car} from "../interfaces/car.interface";
