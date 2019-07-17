@@ -25,7 +25,7 @@ export class ControlComponent implements OnInit {
   async addToMap() {
     if (!this.formControl.value) return;
     this.formControl.disable();
-    let cars = await this.pageService.processPage(this.formControl.value);
+    let cars = await this.pageService.process(this.formControl.value);
     cars.forEach((car) => {
       this.map.newMarker.next(car);
     });

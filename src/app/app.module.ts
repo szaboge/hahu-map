@@ -7,10 +7,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MapComponent } from './components/map/map.component';
 import {HttpClientModule} from "@angular/common/http";
-import {PageService} from "./services/page.service";
 import { ControlComponent } from './components/control/control.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HtmlDialogComponent } from './components/control/html-dialog/html-dialog.component';
+import {CarService} from "./services/car.service";
 
 @NgModule({
   declarations: [
@@ -32,7 +32,7 @@ import { HtmlDialogComponent } from './components/control/html-dialog/html-dialo
     ReactiveFormsModule,
   ],
   entryComponents: [HtmlDialogComponent],
-  providers: [PageService],
+  providers: [CarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

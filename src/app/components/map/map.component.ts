@@ -1,9 +1,24 @@
-import { Component, OnInit } from '@angular/core';
-import { MapService } from '../../services/map.service';
-import { Location } from '../../interfaces/location.interface';
-import { Car } from '../../interfaces/car.interface';
+import {Component, OnInit} from '@angular/core';
+import {MapService} from '../../services/map.service';
+import {Location} from '../../interfaces/location.interface';
+import {Car} from '../../interfaces/car.interface';
+import L, { icon, Marker } from 'leaflet';
 
-declare let L;
+const iconRetinaUrl = 'assets/marker-icon-2x.png';
+const iconUrl = 'assets/marker-icon.png';
+const shadowUrl = 'assets/marker-shadow.png';
+
+const iconDefault = icon({
+  iconRetinaUrl,
+  iconUrl,
+  shadowUrl,
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  tooltipAnchor: [16, -28],
+  shadowSize: [41, 41]
+});
+Marker.prototype.options.icon = iconDefault;
 
 @Component({
   selector: 'app-map',
@@ -11,11 +26,8 @@ declare let L;
   styleUrls: ['./map.component.scss'],
 })
 export class MapComponent implements OnInit {
-
   map;
-
-
-  hungaryLocation: Location = { lat: 47.1580636, lng: 19.4521628 };
+  hungaryLocation: Location = {lat: 47.1580636, lng: 19.4521628};
 
   constructor(private mapService: MapService) {
   }
