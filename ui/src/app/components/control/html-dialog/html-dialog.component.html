@@ -1,0 +1,12 @@
+<mat-form-field class="text-input">
+  <textarea [formControl]="formControl"
+            rows="20"
+            matInput
+            placeholder="Place your parking page source html">
+  </textarea>
+</mat-form-field>
+<button mat-raised-button
+        color="primary"
+        (click)="addToMap()">
+  Add to map
+</button>

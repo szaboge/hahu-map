@@ -1,0 +1,18 @@
+:host {
+  padding: 5px 16px;
+  display: flex;
+  align-items: center;
+
+  .form-field {
+    width: 100%;
+    margin-right: 16px;
+  }
+
+  .add-to-map {
+    flex-shrink: 0;
+  }
+
+  .add-plain {
+    margin-left: 5px;
+  }
+}

@@ -1,0 +1,15 @@
+<mat-form-field class="form-field">
+  <input matInput [formControl]="formControl" placeholder="Insert your search url" value="">
+</mat-form-field>
+<button mat-raised-button
+        color="primary"
+        class="add-to-map"
+        (click)="addToMap()">
+  Add to map
+</button>
+<button mat-icon-button
+        class="add-plain"
+        (click)="addHtml()"
+        color="primary">
+  <span class="mdi mdi-card-text-outline mdi-24px"></span>
+</button>
