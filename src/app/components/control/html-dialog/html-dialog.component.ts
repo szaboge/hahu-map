@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import { PageService } from '../../../services/page.service';
-import { MapService } from '../../../services/map.service';
+import { AppService } from '../../../services/app.service';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -15,7 +15,7 @@ export class HtmlDialogComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<HtmlDialogComponent>,
               private pageService: PageService,
-              private map: MapService) { }
+              private map: AppService) { }
 
   ngOnInit() {
   }

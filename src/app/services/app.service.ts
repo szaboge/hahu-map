@@ -5,9 +5,9 @@ import { Car } from '../interfaces/car.interface';
 @Injectable({
   providedIn: 'root'
 })
-export class MapService {
-
+export class AppService {
   public newMarker = new Subject<Car>();
+  public newLayer = new Subject<string>();
   constructor() {
 
   }

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {MapService} from '../../services/map.service';
+import {AppService} from '../../services/app.service';
 import {Location} from '../../interfaces/location.interface';
 import {Car} from '../../interfaces/car.interface';
 import L, { icon, Marker } from 'leaflet';
@@ -29,7 +29,7 @@ export class MapComponent implements OnInit {
   map;
   hungaryLocation: Location = {lat: 47.1580636, lng: 19.4521628};
 
-  constructor(private mapService: MapService) {
+  constructor(private mapService: AppService) {
   }
 
   ngOnInit() {

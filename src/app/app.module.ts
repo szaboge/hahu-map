@@ -11,13 +11,19 @@ import { ControlComponent } from './components/control/control.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HtmlDialogComponent } from './components/control/html-dialog/html-dialog.component';
 import {CarService} from "./services/car.service";
+import { LayersComponent } from './components/layers/layers.component';
+import { LayerComponent } from './components/layers/layer/layer.component';
+import {AppService} from "./services/app.service";
+import {PageService} from "./services/page.service";
 
 @NgModule({
   declarations: [
     AppComponent,
     MapComponent,
     ControlComponent,
-    HtmlDialogComponent
+    HtmlDialogComponent,
+    LayersComponent,
+    LayerComponent
   ],
   imports: [
     AppRoutingModule,
@@ -32,7 +38,7 @@ import {CarService} from "./services/car.service";
     ReactiveFormsModule,
   ],
   entryComponents: [HtmlDialogComponent],
-  providers: [CarService],
+  providers: [AppService, PageService, CarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

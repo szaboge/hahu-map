@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { PageService } from '../../services/page.service';
-import { FormControl } from '@angular/forms';
-import { MapService } from '../../services/map.service';
-import { MatDialog } from '@angular/material';
-import { HtmlDialogComponent } from './html-dialog/html-dialog.component';
+import {Component, OnInit} from '@angular/core';
+import {PageService} from '../../services/page.service';
+import {FormControl} from '@angular/forms';
+import {AppService} from '../../services/app.service';
+import {MatDialog} from '@angular/material';
+import {HtmlDialogComponent} from './html-dialog/html-dialog.component';
 
 @Component({
   selector: 'app-control',
@@ -14,7 +14,7 @@ export class ControlComponent implements OnInit {
   formControl = new FormControl();
 
   constructor(private pageService: PageService,
-              private map: MapService,
+              private app: AppService,
               public dialog: MatDialog,
   ) {
   }
@@ -27,8 +27,9 @@ export class ControlComponent implements OnInit {
     this.formControl.disable();
     let cars = await this.pageService.process(this.formControl.value);
     cars.forEach((car) => {
-      this.map.newMarker.next(car);
+      this.app.newMarker.next(car);
     });
+    this.app.newLayer.next(this.formControl.value);
     this.formControl.enable();
   }
 
