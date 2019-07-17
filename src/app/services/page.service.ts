@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Location } from '../../../../api/src/interfaces/location.interface';
 import { Car } from '../interfaces/car.interface';
-import { takeLast } from 'rxjs/operators';
+import { Location } from '../interfaces/location.interface';
 
 @Injectable({
   providedIn: 'root',
