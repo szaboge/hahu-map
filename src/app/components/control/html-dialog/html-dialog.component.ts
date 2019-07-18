@@ -14,22 +14,14 @@ export class HtmlDialogComponent implements OnInit {
   formControl = new FormControl();
 
   constructor(public dialogRef: MatDialogRef<HtmlDialogComponent>,
-              private pageService: PageService,
-              private map: AppService) { }
+              private app: AppService) { }
 
   ngOnInit() {
   }
 
   async addToMap() {
     if (!this.formControl.value) return;
-    this.formControl.disable();
-    let html = this.formControl.value;
-    let page = new DOMParser().parseFromString(html, 'text/html');
-    let cars = await this.pageService.processHtml(page);
-    cars.forEach((car) => {
-      this.map.newMarker.next(car);
-    });
-    this.formControl.enable();
+    this.app.newLayerHtml.next(this.formControl.value);
     this.dialogRef.close();
   }
 }

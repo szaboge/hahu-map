@@ -8,7 +8,7 @@ import { Car } from '../interfaces/car.interface';
 export class AppService {
   public newMarker = new Subject<Car>();
   public newLayer = new Subject<string>();
-  constructor() {
+  public newLayerHtml = new Subject<string>();
+  constructor() {}
 
-  }
 }

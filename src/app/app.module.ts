@@ -15,6 +15,7 @@ import { LayersComponent } from './components/layers/layers.component';
 import { LayerComponent } from './components/layers/layer/layer.component';
 import {AppService} from "./services/app.service";
 import {PageService} from "./services/page.service";
+import { LayerHtmlComponent } from './components/layers/layer-html/layer-html.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {PageService} from "./services/page.service";
     ControlComponent,
     HtmlDialogComponent,
     LayersComponent,
-    LayerComponent
+    LayerComponent,
+    LayerHtmlComponent
   ],
   imports: [
     AppRoutingModule,

@@ -1,1 +1,6 @@
-<app-layer *ngFor="let layer of layers"></app-layer>
+<app-layer *ngFor="let url of layers"
+           [url]="url">
+</app-layer>
+<app-layer-html *ngFor="let html of layersHtml"
+                [html]="html">
+</app-layer-html>

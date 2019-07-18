@@ -1,0 +1,10 @@
+:host {
+  display: flex;
+  justify-content: space-between;
+
+  .title {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 1200px;
+  }
+}
