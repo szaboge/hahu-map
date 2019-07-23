@@ -1,6 +1,2 @@
-<app-layer-url *ngFor="let url of layers"
-           [url]="url">
-</app-layer-url>
-<app-layer-html *ngFor="let html of layersHtml"
-                [html]="html">
-</app-layer-html>
+<app-layer *ngFor="let layer of layerService.layers" [layer]="layer">
+</app-layer>
