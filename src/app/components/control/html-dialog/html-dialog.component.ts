@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
-import { PageService } from '../../../services/page.service';
-import { AppService } from '../../../services/app.service';
 import { FormControl } from '@angular/forms';
+import {LayerService} from "../../../services/layer.service";
 
 @Component({
   selector: 'app-html-dialog',
@@ -14,14 +13,14 @@ export class HtmlDialogComponent implements OnInit {
   formControl = new FormControl();
 
   constructor(public dialogRef: MatDialogRef<HtmlDialogComponent>,
-              private app: AppService) { }
+              private layerService: LayerService) { }
 
   ngOnInit() {
   }
 
   async addToMap() {
     if (!this.formControl.value) return;
-    this.app.newLayerHtml.next(this.formControl.value);
+    this.layerService.addNewHtmlLayer(this.formControl.value);
     this.dialogRef.close();
   }
 }

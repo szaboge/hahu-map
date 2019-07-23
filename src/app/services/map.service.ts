@@ -1,15 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
 import { Car } from '../interfaces/car.interface';
 import L from 'leaflet';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AppService {
-  public newLayer = new Subject<string>();
-  public newLayerHtml = new Subject<string>();
-
+export class MapService {
   public set map(value) {
     this._map = value;
   }

@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {PageService} from '../../services/page.service';
 import {FormControl} from '@angular/forms';
-import {AppService} from '../../services/app.service';
 import {MatDialog} from '@angular/material';
 import {HtmlDialogComponent} from './html-dialog/html-dialog.component';
+import {LayerService} from "../../services/layer.service";
 
 @Component({
   selector: 'app-control',
@@ -14,7 +14,7 @@ export class ControlComponent implements OnInit {
   formControl = new FormControl();
 
   constructor(private pageService: PageService,
-              private app: AppService,
+              private layerService: LayerService,
               public dialog: MatDialog,
   ) {
   }
@@ -24,7 +24,7 @@ export class ControlComponent implements OnInit {
 
   async addToMap() {
     if (!this.formControl.value) return;
-    this.app.newLayer.next(this.formControl.value);
+    this.layerService.addNewUrlLayer(this.formControl.value);
     this.formControl.setValue('');
   }
 

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {AppService} from "../../services/app.service";
+import {Component, OnInit} from '@angular/core';
+
+import {LayerService} from "../../services/layer.service";
 
 @Component({
   selector: 'app-layers',
@@ -7,15 +8,10 @@ import {AppService} from "../../services/app.service";
   styleUrls: ['./layers.component.scss']
 })
 export class LayersComponent implements OnInit {
-
-  layers: Array<string> = [];
-  layersHtml: Array<string> = [];
-
-  constructor(private appService: AppService) { }
+  constructor(private layerService: LayerService) {
+  }
 
   ngOnInit() {
-    this.appService.newLayer.subscribe(url => this.layers.push(url));
-    this.appService.newLayerHtml.subscribe(html => this.layersHtml.push(html));
   }
 
 }

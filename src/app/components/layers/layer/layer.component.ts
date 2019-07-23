@@ -1,21 +1,38 @@
-import { Component } from '@angular/core';
-import { PageService } from '../../../services/page.service';
-import { CarService } from '../../../services/car.service';
-import { AppService } from '../../../services/app.service';
+import {Component, Input, OnInit} from '@angular/core';
+import {PageService} from '../../../services/page.service';
+import {CarService} from '../../../services/car.service';
+import {MapService} from '../../../services/map.service';
+import {Layer, LayerType} from "../../../interfaces/layer.inteface";
+import {LayerService} from "../../../services/layer.service";
 
 @Component({
   selector: 'app-layer',
-  template: '',
+  templateUrl: './layer.component.html',
+  styleUrls: ['./layer.component.scss']
 })
-export class LayerComponent {
+export class LayerComponent implements OnInit {
+  @Input() layer: Layer;
   actual: number = 0;
   max: number = 0;
   title: string = '';
   markers = [];
 
-  constructor(public pageService: PageService,
-              public car: CarService,
-              public map: AppService) {
+  constructor(private pageService: PageService,
+              private layerService: LayerService,
+              private car: CarService,
+              private map: MapService) {
+  }
+
+  ngOnInit(): void {
+    if (this.layer.type === LayerType.HTML) {
+      this.processPage(this.layer.html);
+      this.title = 'Parking';
+    } else {
+      this.pageService.fetchUrl(this.layer.url).subscribe((html: string) => {
+        this.processFirstPage(html, this.layer.url);
+      });
+      this.title = this.layer.url;
+    }
   }
 
   processFirstPage(html: string, url: string) {
@@ -50,7 +67,7 @@ export class LayerComponent {
 
     this.pageService.fetchUrl(href).subscribe((html) => {
       let car = this.car.parseCar(html);
-      car = { ...car, url: href, title };
+      car = {...car, url: href, title};
       this.markers.push(this.map.addNewMarker(car));
       this.actual++;
     });
@@ -60,6 +77,6 @@ export class LayerComponent {
     this.markers.forEach((marker) => {
       marker.remove();
     });
+    this.layerService.removeLayer(this.layer);
   }
-
 }
