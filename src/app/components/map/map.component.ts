@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AppService} from '../../services/app.service';
 import {Location} from '../../interfaces/location.interface';
-import {Car} from '../../interfaces/car.interface';
 import L, { icon, Marker } from 'leaflet';
 
 const iconRetinaUrl = 'assets/marker-icon-2x.png';
@@ -38,24 +37,6 @@ export class MapComponent implements OnInit {
       attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     }).addTo(this.map);
 
-    this.mapService.newMarker.subscribe((car: Car) => {
-      this.addMarker(car);
-    });
+    this.mapService.map = this.map;
   }
-
-  addMarker(car: Car) {
-    let marker = L.marker([car.location.lat, car.location.lng]).addTo(this.map);
-    marker.bindPopup(this.popUpHtml(car));
-  }
-
-  popUpHtml(car: Car): string {
-    return `
-    <span><b>${car.title}</b></span><br>
-    <img src="${car.imageUrl}" height="150px" width="200px"></br>
-    <span>Price: ${car.price}</span><br>
-    <span>${car.km}</span><br>
-    <a href="${car.url}" target="_blank">Open</a>    
-    `;
-  }
-
 }

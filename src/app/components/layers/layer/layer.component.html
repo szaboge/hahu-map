@@ -1,2 +1,7 @@
-<div class="title">{{url}}</div>
-{{actual}}/{{max}}
+<mat-card class="card">
+  <div class="title">{{title}}</div>
+  {{actual}}/{{max}}
+  <button mat-icon-button color="warn" (click)="removeMarkers()">
+    <span class="mdi mdi-close mdi-24px"></span>
+  </button>
+</mat-card>

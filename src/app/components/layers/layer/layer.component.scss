@@ -1,10 +1,24 @@
 :host {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
 
-  .title {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    width: 1200px;
+  .card {
+    width: 97%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+
+    &.mat-card {
+      padding: 0;
+    }
+
+    .title {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      width: 90%;
+      margin: 0 10px;
+    }
   }
 }

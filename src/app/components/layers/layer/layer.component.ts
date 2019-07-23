@@ -1,44 +1,31 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { PageService } from '../../../services/page.service';
-import { HttpClient } from '@angular/common/http';
 import { CarService } from '../../../services/car.service';
 import { AppService } from '../../../services/app.service';
 
 @Component({
   selector: 'app-layer',
-  templateUrl: './layer.component.html',
-  styleUrls: ['./layer.component.scss'],
+  template: '',
 })
-export class LayerComponent implements OnInit, OnDestroy {
-
-  @Input() url: string = '';
-
+export class LayerComponent {
   actual: number = 0;
   max: number = 0;
+  title: string = '';
+  markers = [];
 
-  constructor(private pageService: PageService,
-              private http: HttpClient,
-              private car: CarService,
-              private map: AppService) {
+  constructor(public pageService: PageService,
+              public car: CarService,
+              public map: AppService) {
   }
 
-  ngOnInit() {
-    this.pageService.fetchUrl(this.url).subscribe((html: string) => {
-      this.processFirstPage(html);
-    });
-  }
-
-  ngOnDestroy(): void {
-  }
-
-  processFirstPage(html: string) {
+  processFirstPage(html: string, url: string) {
     let page: Document = this.pageService.parsePage(html);
     let pageCount: number = this.pageService.getPageCount(page);
 
     if (pageCount > 1) {
       this.processPage(html);
       for (let i = 2; i <= pageCount; i++) {
-        let pageUrl = `${this.url}/page${i}`;
+        let pageUrl = `${url}/page${i}`;
         this.pageService.fetchUrl(pageUrl).subscribe(this.processPage);
       }
     } else {
@@ -64,8 +51,14 @@ export class LayerComponent implements OnInit, OnDestroy {
     this.pageService.fetchUrl(href).subscribe((html) => {
       let car = this.car.parseCar(html);
       car = { ...car, url: href, title };
-      this.map.newMarker.next(car);
+      this.markers.push(this.map.addNewMarker(car));
       this.actual++;
+    });
+  }
+
+  removeMarkers() {
+    this.markers.forEach((marker) => {
+      marker.remove();
     });
   }
 
