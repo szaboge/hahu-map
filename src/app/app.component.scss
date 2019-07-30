@@ -1,15 +1,10 @@
 .grid-container {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto auto 1fr;
-  grid-template-areas: "control-area" "layers-area" "main-area";
-  width: 100vw;
-  height: 100%;
-}
-
-.layers-area {
-  width: 100vw;
-  grid-area: layers-area;
+  grid-template-rows: auto 1fr;
+  grid-template-areas: "control-area" "main-area";
+  width: 100%;
+  height: 100vh;
 }
 
 .control-area {
@@ -17,5 +12,6 @@
 }
 
 .main-area {
+  position: relative;
   grid-area: main-area;
 }
