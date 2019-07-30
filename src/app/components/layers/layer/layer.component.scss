@@ -2,13 +2,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  pointer-events: all;
 
   .card {
     width: 97%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 10px;
+    margin-top: 5px;
 
     &.mat-card {
       padding: 0;
@@ -19,6 +20,7 @@
       overflow: hidden;
       width: 90%;
       margin: 0 10px;
+      user-select: none;
     }
   }
 }

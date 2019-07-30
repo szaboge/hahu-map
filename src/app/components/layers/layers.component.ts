@@ -8,7 +8,7 @@ import {LayerService} from "../../services/layer.service";
   styleUrls: ['./layers.component.scss']
 })
 export class LayersComponent implements OnInit {
-  constructor(private layerService: LayerService) {
+  constructor(public layerService: LayerService) {
   }
 
   ngOnInit() {

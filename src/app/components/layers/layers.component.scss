@@ -1,5 +1,13 @@
 :host {
   display: flex;
-  justify-content: flex-end;
   flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100%;
+  z-index: 2147483647;
+  padding-top: 75px;
+  padding-left: 5px;
+  pointer-events: none;
 }
