@@ -27,4 +27,4 @@ A legfrissebb alkalmazás: https://hahu-map.surge.sh
 
 _hamarosan..._
 
-_Legfrissebb verzió: 1.0.0_
+_Legfrissebb verzió: 1.0.1_
