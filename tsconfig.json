@@ -11,6 +11,11 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "target": "es5",
+    "paths": {
+      "services/*": ["src/app/services/*"],
+      "components/*": ["src/app/components/*"],
+      "interfaces/*": ["src/app/interfaces/*"]
+    },
     "typeRoots": [
       "node_modules/@types"
     ],

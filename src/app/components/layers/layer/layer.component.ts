@@ -1,9 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {PageService} from '../../../services/page.service';
-import {CarService} from '../../../services/car.service';
-import {MapService} from '../../../services/map.service';
-import {Layer, LayerType} from "../../../interfaces/layer.inteface";
-import {LayerService} from "../../../services/layer.service";
+import {PageService} from 'services/page.service';
+import {CarService} from 'services/car.service';
+import {MapService} from 'services/map.service';
+import {Layer, LayerType} from "interfaces/layer.inteface";
+import {LayerService} from "services/layer.service";
 
 @Component({
   selector: 'app-layer',

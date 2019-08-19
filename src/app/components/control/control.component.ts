@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {PageService} from '../../services/page.service';
+import {PageService} from 'services/page.service';
 import {FormControl} from '@angular/forms';
 import {MatDialog} from '@angular/material';
 import {HtmlDialogComponent} from './html-dialog/html-dialog.component';
-import {LayerService} from "../../services/layer.service";
+import {LayerService} from "services/layer.service";
 
 @Component({
   selector: 'app-control',

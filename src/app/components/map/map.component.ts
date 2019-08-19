@@ -1,23 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {MapService} from '../../services/map.service';
-import {Location} from '../../interfaces/location.interface';
-import L, { icon, Marker } from 'leaflet';
-
-const iconRetinaUrl = 'assets/marker-icon-2x.png';
-const iconUrl = 'assets/marker-icon.png';
-const shadowUrl = 'assets/marker-shadow.png';
-
-const iconDefault = icon({
-  iconRetinaUrl,
-  iconUrl,
-  shadowUrl,
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  tooltipAnchor: [16, -28],
-  shadowSize: [41, 41]
-});
-Marker.prototype.options.icon = iconDefault;
+import {MapService} from 'services/map.service';
+import {Location} from 'interfaces/location.interface';
+import {Map, tileLayer} from 'leaflet';
 
 @Component({
   selector: 'app-map',
@@ -32,8 +16,8 @@ export class MapComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.map = L.map('map').setView([this.hungaryLocation.lat, this.hungaryLocation.lng], 8.36);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    this.map = new Map('map').setView([this.hungaryLocation.lat, this.hungaryLocation.lng], 8.36);
+    tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     }).addTo(this.map);
 

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {Car} from "../interfaces/car.interface";
-import {Location} from "../interfaces/location.interface";
+import {Car} from "interfaces/car.interface";
+import {Location} from "interfaces/location.interface";
 
 @Injectable({
   providedIn: 'root'

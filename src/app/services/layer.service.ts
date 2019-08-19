@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Layer, LayerType} from "../interfaces/layer.inteface";
+import {Layer, LayerType} from "interfaces/layer.inteface";
 import {v4 as uuid} from 'uuid';
 
 @Injectable({

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import { FormControl } from '@angular/forms';
-import {LayerService} from "../../../services/layer.service";
+import {LayerService} from "services/layer.service";
 
 @Component({
   selector: 'app-html-dialog',

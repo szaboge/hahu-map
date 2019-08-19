@@ -22,6 +22,7 @@
     "@angular/platform-browser-dynamic": "~8.1.2",
     "@angular/router": "~8.1.2",
     "@mdi/font": "^3.8.95",
+    "@types/leaflet": "^1.5.1",
     "core-js": "^3.1.4",
     "leaflet": "^1.5.1",
     "rxjs": "~6.5.2",
